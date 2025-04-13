@@ -1,0 +1,57 @@
+﻿<Window x:Class="RevitAPI_Project1.View.CreateFloorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:RevitAPI_Project1.View"
+        mc:Ignorable="d" 
+        Title="Create Floor" 
+        Height="200" Width="350"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Floor Type Selection -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Floor Type:" Margin="5,0,10,5" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="0" Grid.Column="1" 
+                  ItemsSource="{Binding FloorTypes}" 
+                  SelectedItem="{Binding SelectedFloorType , Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" 
+                  DisplayMemberPath="FloorName" 
+                  Margin="5" 
+                  Height="25"/>
+
+        <!-- Level Selection -->
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Level:" Margin="5,0,10,5" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" 
+                  ItemsSource="{Binding Levels}" 
+                  SelectedItem="{Binding SelectedLevel , Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}"                 
+                  DisplayMemberPath="LevelName"
+                  Margin="5" 
+                  Height="25"/>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,20,0,0">
+            <Button Content="Create" 
+                    Width="80" 
+                    Command="{Binding CreateFloorCommand}" 
+                    Margin="5"/>
+            <Button Content="Cancel" 
+                    Width="80" 
+                    IsCancel="True" 
+                    Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

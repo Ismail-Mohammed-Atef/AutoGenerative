@@ -1,0 +1,15 @@
+﻿<Window x:Class="RevitAPI_Project1.FoundationSelectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Foundation Settings" Height="300" Width="350"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="10">
+        <TextBlock Text="Select Foundation Type:"/>
+        <ComboBox Name="FoundationComboBox" Margin="0,5" Height="25"/>
+
+        <TextBlock Text="Select Level:" Margin="0,10,0,0"/>
+        <ComboBox Name="LevelComboBox" Margin="0,5" Height="25"/>
+
+        <Button Name="OkButton" Content="OK" Height="30" Width="80" Margin="0,10,0,0" HorizontalAlignment="Right" Click="OkButton_Click"/>
+    </StackPanel>
+</Window>
